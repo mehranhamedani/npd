@@ -1,0 +1,12 @@
+{
+    "host":{
+        "port": 3000,
+        "address": "localhost"
+    },
+    "db": {
+        "host": "localhost",
+        "name": "npd",
+        "user": "postgres",
+        "password": "123456"
+    }
+}
