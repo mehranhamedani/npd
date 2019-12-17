@@ -10,7 +10,7 @@ const hostConfig = config.get('host')
 const app = express()
 
 app.use(bodyParser.json())
-app.use('/', router)
+app.use('/api', router)
 app.use(resHandler)
 app.use(errorHandler)
 
@@ -32,6 +32,9 @@ function errorHandler(err, req, res, next) {
     })
 }
 
-app.listen(hostConfig.port, hostConfig.address, () => console.log(`Listening on ${hostConfig.address}:${hostConfig.port}!`))
+app.listen(hostConfig.port, hostConfig.address, () => {
+    console.log(`Listening on ${hostConfig.address}:${hostConfig.port}!`)
+    console.log(`NODE_ENV ${process.env.NODE_ENV}`)
+})
 
 export default app
