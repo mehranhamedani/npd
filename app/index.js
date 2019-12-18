@@ -32,7 +32,7 @@ function errorHandler(err, req, res, next) {
     })
 }
 
-app.listen(hostConfig.port, hostConfig.address, () => {
+app.listen(hostConfig.port, () => {
     console.log(`Listening on ${hostConfig.address}:${hostConfig.port}!`)
     console.log(`NODE_ENV ${process.env.NODE_ENV}`)
 })
