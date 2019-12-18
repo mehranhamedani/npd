@@ -16,6 +16,12 @@ Otherwise, you can do the following steps:
 $ git clone https://github.com/mehranhamedani/npd-api
 ```
 
+# Step 4: change work dir
+
+```bash
+$ cd npd-api
+```
+
 # Step 2: npm install
 
 ```bash
