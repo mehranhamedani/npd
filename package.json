@@ -6,6 +6,8 @@
   "scripts": {
     "build": "babel app -d dist",
     "start": "npm run build && NODE_ENV=production node dist/index.js",
+    "start:linux:dev": "npm run build && NODE_ENV=development node dist/index.js",
+    "start:win:dev": "npm run build && set NODE_ENV=development&&node dist/index.js",
     "test": "jest"
   },
   "keywords": [
