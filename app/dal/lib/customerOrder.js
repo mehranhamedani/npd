@@ -203,18 +203,17 @@ async function deleteCustomerOrder(customerID, customerOrderID){
 
 async function getCustomerOrders(name, statusID, skip, limit){
     try{
-        let whereClause = []
+        let customerWhereClause = {}
+        let customerOrderWhereClause = {}
         if(hasValue(name) && name !== ''){
-            whereClause.push({'customer.name':name})
+            customerWhereClause['$customer.name$'] = name
         }
         if(hasValue(statusID) && statusID > -1){
-            whereClause.push({statusID:statusID})
+            customerOrderWhereClause.statusID = statusID
         }
         return await models.getCustomerOrderModel()
             .findAll({
-                where:{
-                    statusID: statusID
-                },
+                where: customerOrderWhereClause,
                 include:[
                     {
                         model: models.getCustomerOrderDetailModel(),
@@ -224,9 +223,7 @@ async function getCustomerOrders(name, statusID, skip, limit){
                     },
                     {
                         model: models.getCustomerModel(),
-                        where:{
-                            '$customer.name$': name
-                        }
+                        where: customerWhereClause
                     }
                 ],
                 order: [

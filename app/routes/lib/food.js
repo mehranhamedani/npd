@@ -111,7 +111,7 @@ router.get('/getOrders', async function (req, res, next) {
 
     let customerName = ''
     let statusID = -1
-    if(hasValue()) customerName = req.query.name
+    if(hasValue(req.query.name)) customerName = req.query.name
     if(hasValue(req.query.statusID)) statusID = parseInt(req.query.statusID)
     const pageNumber = parseInt(req.query.pageNumber)
 
